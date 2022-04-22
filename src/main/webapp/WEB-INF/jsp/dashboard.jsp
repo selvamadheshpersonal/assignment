@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false" import="java.util.*"%>
    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+   <%@ include file="layout/header.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,8 @@ $(document).ready(function(){
 </form>
 <c:out value="${responseDetails.responseMessage}"/>
 Dashboard
-
+<c:forEach var = "plant" items="${plants}">
+<c:out value ="${ plant.plantName}" />
+</c:forEach>
 </body>
 </html>

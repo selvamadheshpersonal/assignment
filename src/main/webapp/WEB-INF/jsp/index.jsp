@@ -47,6 +47,7 @@ $(document).ready(function(){
     <a href="loadRegistration">Register</a>
   
 </div>
+ 
 
 </body>
 </html>
