@@ -14,7 +14,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	$("#login").bind('click',function(){
+	$("#login").bind('click',function(e){
+		e.preventDefault();
 		document.loginForm.emailId.value=$("#email").val();
 		document.loginForm.password.value=$("#password").val();
 		document.loginForm.submit();
@@ -25,11 +26,8 @@ $(document).ready(function(){
 </head>
 <body>
 <form name="loginForm" action="authenticate" method="post">
-<input type="hidden" name="firstName"/>
-<input type="hidden" name="lastName"/>
 <input type="hidden" name="emailId"/>
 <input type="hidden" name="password"/>
-
 </form>
 <c:out value="${responseDetails.responseMessage}"/>
 <div class="container-login100" style="background-image: url('assets/img/gallery/bg-01.jpg');">
@@ -50,7 +48,7 @@ $(document).ready(function(){
 				</div>
 
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn" id="login">
+					<button class="login100-form-btn"  id="login">
 						Login
 					</button>
 				</div>

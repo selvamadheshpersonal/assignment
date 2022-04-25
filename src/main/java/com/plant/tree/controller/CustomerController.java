@@ -17,6 +17,11 @@ public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
+	
+	@RequestMapping("loadLogin")
+	public ModelAndView loadLoginPage() {
+		return new ModelAndView("index");
+	}
 
 	@RequestMapping("loadRegistration")
 	public ModelAndView loadRegistrationPage() {
@@ -29,9 +34,11 @@ public class CustomerController {
 		return new ModelAndView("register", "responseDetails", responseDetails);
 	}
 	
-	@RequestMapping(value = "authenticate", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	@RequestMapping(value = "authenticate", method = RequestMethod.POST)
 	public ModelAndView authenticate(LoginRequest loginRequest) {
+		System.err.println("Login Request");
 		ResponseDetails responseDetails = customerService.authenticate(loginRequest);
+		System.err.println(responseDetails.getResponseCode());
 		if("000".equals(responseDetails.getResponseCode())) {
 			return new ModelAndView("dashboard");
 		} else {

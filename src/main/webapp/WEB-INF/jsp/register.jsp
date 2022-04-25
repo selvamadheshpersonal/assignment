@@ -63,7 +63,7 @@ $(document).ready(function(){
 				</div>
 
 				<div class="container-login100-form-btn">
-					<button class="login100-form-btn" id="login">
+					<button class="login100-form-btn" id="register">
 						Create
 					</button>
 				</div>
