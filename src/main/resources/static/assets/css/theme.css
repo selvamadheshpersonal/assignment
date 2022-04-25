@@ -18389,6 +18389,7 @@ ul {
 .card-img-top {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  length:100%
 }
 
 .card-img,

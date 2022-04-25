@@ -7,7 +7,8 @@
   <title>Plant-A-Tree Registration</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="assets/css/util.css">
+   <link rel="stylesheet" type="text/css"  href="assets/css/main.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
@@ -37,29 +38,37 @@ $(document).ready(function(){
 <c:if test="${responseDetails.responseCode ne '000' }">
 <c:out value="${responseDetails.responseMessage}"/>
 </c:if>
-<div class="container mt-3">
-  <h2>Registration form</h2>
-  <form>
-   <div class="mb-3 mt-3">
-      <label for="firstName">First Name:</label>
-      <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
-    </div>
-    <div class="mb-3 mt-3">
-      <label for="lastName">Last Name:</label>
-      <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
-    </div>
-    <div class="mb-3">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
-    </div>
-    <div class="mb-3">
-      <label for="password">Password:</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password">
-    </div>
-    
-    <button type="button" class="btn btn-primary" id="register">Submit</button>
-  </form>
-</div>
+<div class="container-login100" style="background-image: url('assets/img/gallery/bg-03.jpg');">
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+			
+				<span class="login100-form-title p-b-37">
+					Sign Up
+				</span>
+					<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Username or Email">
+					<input class="input100" type="text" name="firstName" id="firstName" placeholder="First Name">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Username or Email">
+					<input class="input100" type="text" name="lastName" id="lastName" placeholder="Last Name">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter Username or Email">
+					<input class="input100" type="email" name="email" id="email" placeholder="Email">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter Password">
+					<input class="input100" type="password" name="password" id="password" placeholder="Password">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn" id="login">
+						Create
+					</button>
+				</div>
+
+	
 
 </body>
 </html>

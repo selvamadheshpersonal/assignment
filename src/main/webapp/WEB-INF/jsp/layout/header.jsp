@@ -14,7 +14,7 @@
 </head>
 <body>
  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-  <img src="assets/img/gallery/plant-a-tree-logo.jpg" height="50" width="50">
+  <img src="assets/img/gallery/plants/logo.png" height="50" width="50">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
