@@ -37,7 +37,7 @@ $(document).ready(function(){
 <div class="card" style="width: 18.5rem;margin: 10px;">
   <img class="card-image" src="${plant.imageName}" alt="Card image cap">
   <div class="card-body">
-    <a href="#" ><h5 class="card-title">${ plant.plantName}</h5>  </a>
+    <a href="viewPlantDetails?plantId=${plant.id}" ><h5 class="card-title">${ plant.plantName}</h5>  </a>
     <p class="card-text">£ ${ plant.price}</p>
  
   </div>

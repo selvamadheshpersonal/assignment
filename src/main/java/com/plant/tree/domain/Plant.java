@@ -25,6 +25,15 @@ public class Plant {
 	@Column(name = "imageName")
 	private String imageName;
 	
+	@Column(name = "plantQuantity")
+	private String plantQuantity;
+	
+	@Column(name = "plantCategory")
+	private String plantCategory;
+	
+	@Column(name = "price")
+	private BigDecimal price;
+	
 	public int getId() {
 		return id;
 	}
@@ -81,14 +90,7 @@ public class Plant {
 		this.price = price;
 	}
 
-	@Column(name = "plantQuantity")
-	private String plantQuantity;
 	
-	@Column(name = "plantCategory")
-	private String plantCategory;
-	
-	@Column(name = "price")
-	private BigDecimal price;
 	
 
 }

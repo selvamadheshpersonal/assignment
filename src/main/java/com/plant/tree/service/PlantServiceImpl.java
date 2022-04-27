@@ -18,5 +18,8 @@ public class PlantServiceImpl implements PlantService{
 
 		return repository.findAll();
 	}
-	
+	@Override
+	public Plant getSelectedPlant(int plantId) {
+		return repository.findById(plantId).get();
+	}
 }
