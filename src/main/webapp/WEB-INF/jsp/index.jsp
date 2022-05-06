@@ -60,7 +60,7 @@ function validate(){
 				</div>
 				<div id ="errors" style="color:red;" class="text-center">
       			</div>
-
+       <input type="hidden" name="plantId" value="<c:out value="${plantId}"/>"/>
 				<div class="container-login100-form-btn">
 					<button class="login100-form-btn"  id="login" type="submit">
 						Login

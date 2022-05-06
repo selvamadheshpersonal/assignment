@@ -1,5 +1,7 @@
 package com.plant.tree.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,7 +25,11 @@ public class CartController {
 	private CartService cartService;
 	String count;
 	@RequestMapping("addToCart")
-	public ModelAndView addToCart(CartRequest cartRequest,ModelMap map) {
+	public ModelAndView addToCart(CartRequest cartRequest,HttpSession session,ModelMap map) {
+		
+		if(session.getAttribute("userEmail") == null) {
+			return new ModelAndView("index", "plantId", cartRequest.getSelectedPlantId());
+		}
 		
 		Plant plant = plantService.getSelectedPlant(cartRequest.getSelectedPlantId());	
 		ResponseDetails responseDetails = cartService.storeCartItems(plant,cartRequest.getUserEmail(), cartRequest.getQuantity());

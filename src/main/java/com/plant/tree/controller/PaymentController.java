@@ -3,6 +3,8 @@ package com.plant.tree.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -29,8 +31,8 @@ public class PaymentController {
 	
 	
 	@RequestMapping(value = "pay", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-	public ModelAndView pay(PaymentRequest paymentRequest,ModelMap map ) {
-		ResponseDetails responseDetails = paymentService.payment(paymentRequest);
+	public ModelAndView pay(PaymentRequest paymentRequest,HttpSession session, ModelMap map ) {
+		ResponseDetails responseDetails = paymentService.payment(paymentRequest, (String) session.getAttribute("userEmail"));
 		
 		if ("000".equals(responseDetails.getResponseCode())) {
 			List<Plant> plants= plantService.getPlants();

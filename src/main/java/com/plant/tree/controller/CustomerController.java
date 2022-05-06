@@ -2,6 +2,7 @@ package com.plant.tree.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.plant.tree.bean.LoginRequest;
 import com.plant.tree.bean.RegistrationRequest;
@@ -55,13 +57,18 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "authenticate", method = RequestMethod.POST)
-	public ModelAndView authenticate(LoginRequest loginRequest, ModelMap model) {
+	public ModelAndView authenticate(LoginRequest loginRequest, HttpServletRequest request,ModelMap model) {
 		System.err.println("Login Request");
 		ResponseDetails responseDetails = customerService.authenticate(loginRequest);
 		System.err.println(responseDetails.getResponseCode());
 		if ("000".equals(responseDetails.getResponseCode())) {
+			HttpSession session = request.getSession();
+			session.setAttribute("userEmail", loginRequest.getEmailId());
 			model.put("userEmail", loginRequest.getEmailId());
 			List<Plant> plants = plantService.getPlants();
+			if(loginRequest.getPlantId() != null && !"".equals(loginRequest.getPlantId().trim())) {
+				return new ModelAndView("redirect:viewPlantDetails?plantId="+loginRequest.getPlantId());
+			}
 			return new ModelAndView("dashboard", "plants", plants);
 		} else {
 			return new ModelAndView("index", "responseDetails", responseDetails);

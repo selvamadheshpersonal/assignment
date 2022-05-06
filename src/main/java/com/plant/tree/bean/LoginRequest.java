@@ -4,6 +4,8 @@ public class LoginRequest {
 
 	private String emailId;
 	private String password;
+	private String plantId;
+	
 	public String getEmailId() {
 		return emailId;
 	}
@@ -16,6 +18,13 @@ public class LoginRequest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getPlantId() {
+		return plantId;
+	}
+	public void setPlantId(String plantId) {
+		this.plantId = plantId;
+	}
+	
 	
 	
 }

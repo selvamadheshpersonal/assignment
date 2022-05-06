@@ -5,5 +5,5 @@ import com.plant.tree.bean.ResponseDetails;
 
 public interface PaymentService {
 
-	ResponseDetails payment(PaymentRequest paymentRequest);
+	ResponseDetails payment(PaymentRequest paymentRequest, String userEmail);
 }

@@ -1,15 +1,10 @@
 package com.plant.tree.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.plant.tree.bean.AddToCartRequest;
-import com.plant.tree.bean.RegistrationRequest;
 import com.plant.tree.bean.ResponseDetails;
 import com.plant.tree.domain.Cart;
-import com.plant.tree.domain.Customer;
 import com.plant.tree.domain.Plant;
 import com.plant.tree.repository.CartRepository;
 
@@ -22,13 +17,17 @@ public class CartServiceImpl implements CartService{
 	public ResponseDetails storeCartItems(Plant plant, String userEmail, String quantity) {
 		ResponseDetails responseDetails = new ResponseDetails();
 		try {
-			Cart cart = new Cart();
+			Cart cart = repository.findByuserEmailAndProductId(userEmail, plant.getId());
+			if(cart == null) {
+				cart = new Cart();
+				cart.setQuantity(0);
+			}
 			cart.setProductId(plant.getId());
 			cart.setUserEmail(userEmail);
 			cart.setProductPrice(plant.getPrice());
 			cart.setProductName(plant.getPlantName());
 			cart.setProductImage(plant.getImageName());
-			cart.setQuantity(Integer.parseInt(quantity));
+			cart.setQuantity(cart.getQuantity() + Integer.parseInt(quantity));
 			Cart savedCart = repository.save(cart);
 			if(savedCart != null) {
 				responseDetails.setResponseCode("000");
