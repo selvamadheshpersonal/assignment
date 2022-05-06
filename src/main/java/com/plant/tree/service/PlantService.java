@@ -5,6 +5,7 @@ import java.util.List;
 import com.plant.tree.domain.Plant;
 
 public interface PlantService {
+	
 List<Plant> getPlants();
 Plant getSelectedPlant(int palntId);
 }

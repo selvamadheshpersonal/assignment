@@ -92,11 +92,6 @@
           <div class="col text-end">£ ${result} </div>
           <c:set var="total" value="${total + cartItem.quantity * cartItem.productPrice}"/>
         </div>
-        <div class="row">
-          <div class="col">
-            <button class="login101-form-btn">+</button>
-            <button class="login101-form-btn">-</button>
-          </div>
         </div>
         </c:forEach>
       </div>
@@ -110,8 +105,14 @@
             Discount(20%)
           </div>
           <div class="col text-end">
+          <c:if test="${total gt 50}">
               <c:set var="finalAmount" value="${total - (total* 20) / 100}"/>
             £ <c:out value="${(total* 20) / 100}"/>
+            </c:if>
+            <c:if test="${total le 50}">
+              <c:set var="finalAmount" value="${total}"/>
+            £ <c:out value="${total}"/>
+            </c:if>
           </div>
         </div>
         <div class="row borderTop">
