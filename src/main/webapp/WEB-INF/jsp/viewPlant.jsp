@@ -14,6 +14,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript">
+  
   function plus(elem){
     let targetElem = document.getElementById('count2');
     let targetCount = parseInt(targetElem.value);
@@ -29,8 +30,22 @@ function minus(elem){
     }
 }
   </script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+	  $("#addToCart").bind('click', function(){
+		 document.cartForm.quantity = document.getElementById('count2').value;
+		 document.cartForm.submit();
+	  });
+  });
+  </script>
 </head>
 <body>
+	<form name="cartForm" method="post" action="addToCart">
+					<input type="hidden" name="selectedPlantId" value="${selectedPlant.id}"/>
+					<input type="hidden" name="userEmail" value="${userEmail}"/>
+					<input type="hidden" name="quantity"/>
+					
+					</form>
 <div class="row" style="margin-top: 100px;">
 <div class="col">
  <img class="card-image" src="${selectedPlant.imageName}" alt="image">
@@ -44,11 +59,11 @@ function minus(elem){
                 <div class="col-1"><button class="login101-form-btn" type="button" name="button" onclick="plus(this)">+</button></div>
                 </div>
 <div class="container-login100-form-btn">
-					<button class="login102-form-btn" id="register">
-					<a href="addToCart?selectedPlantId=${selectedPlant.id}&userEmail=${userEmail}&quantity=${count}" >
+					<button class="login102-form-btn" id="addToCart">
+					
 						Add to Cart
-					</a>
-						
+					
+				
 					</button>
 				</div>
 </div>

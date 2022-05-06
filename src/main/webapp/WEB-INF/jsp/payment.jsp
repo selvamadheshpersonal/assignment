@@ -13,7 +13,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
+  <script type="text/javascript">
+  $(document).ready(function(){
+	  $("#pay").bind('click', function(){
+		  document.pay.submit();
+	  });
+  });
+  </script>
   <body>
+  <form name="pay" method="post" action="pay">
+  </form>
     <div class=row style="margin-top: 138px;margin-left: 9px;">
       <div class=col>
         <h4>Shipping and Billing Information</h4>
@@ -74,11 +83,14 @@
         <h4>Order Summary</h4>
         <div class="order-bg">
         <div class="divMargin">
+        <c:set var="total" value="0"/>
         <c:forEach var = "cartItem" items="${cartItemList}">
         <div class="row">
           <div class="col-6"> ${ cartItem.productName} </div>
           <div class="col text-end"> ${ cartItem.quantity}X ${ cartItem.productPrice} </div>
-          <div class="col text-end">£ 30 </div>
+          <c:set var="result" value="${cartItem.quantity * cartItem.productPrice}"/>
+          <div class="col text-end">£ ${result} </div>
+          <c:set var="total" value="${total + cartItem.quantity * cartItem.productPrice}"/>
         </div>
         <div class="row">
           <div class="col">
@@ -91,14 +103,15 @@
         <div class="divMargin">
         <div class="row">
           <div class="col-9"> Sub-total </div>
-          <div class="col text-end">£ 30 </div>
+          <div class="col text-end">£ <c:out value="${total}"/> </div>
         </div>
         <div class="row">
           <div class="col-9">
             Discount(20%)
           </div>
           <div class="col text-end">
-            £200
+              <c:set var="finalAmount" value="${total - (total* 20) / 100}"/>
+            £ <c:out value="${(total* 20) / 100}"/>
           </div>
         </div>
         <div class="row borderTop">
@@ -106,7 +119,7 @@
            Total
           </div>
           <div class="col text-end">
-            £200
+            £ <c:out value="${finalAmount}"/>
           </div>
         </div>
       </div>
@@ -114,7 +127,7 @@
       </div>
     </div>
      <div>
-          <button class="login103-form-btn">Pay</button>
+          <button class="login103-form-btn" id="pay">Pay</button>
         </div>
   </body>
 </html>
