@@ -26,7 +26,7 @@ public class CartController {
 	public ModelAndView addToCart(CartRequest cartRequest,ModelMap map) {
 		
 		Plant plant = plantService.getSelectedPlant(cartRequest.getSelectedPlantId());	
-		ResponseDetails responseDetails = cartService.storeCartItems(plant,cartRequest.getUserEmail());
+		ResponseDetails responseDetails = cartService.storeCartItems(plant,cartRequest.getUserEmail(), cartRequest.getQuantity());
 		System.out.println(cartRequest.getSelectedPlantId()+cartRequest.getQuantity());
 		if ("000".equals(responseDetails.getResponseCode())) {
 			Iterable<Cart> cartItemList= cartService.getCartItem();

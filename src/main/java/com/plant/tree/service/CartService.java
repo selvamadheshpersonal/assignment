@@ -8,6 +8,6 @@ import com.plant.tree.domain.Plant;
 
 public interface CartService {
 
-	ResponseDetails storeCartItems(Plant plant,String useEmail);
+	ResponseDetails storeCartItems(Plant plant,String useEmail, String quantity);
 	Iterable<Cart> getCartItem();
 }

@@ -33,7 +33,7 @@ function minus(elem){
   <script type="text/javascript">
   $(document).ready(function(){
 	  $("#addToCart").bind('click', function(){
-		 document.cartForm.quantity = document.getElementById('count2').value;
+		 document.cartForm.quantity.value = document.getElementById('count2').value;
 		 document.cartForm.submit();
 	  });
   });

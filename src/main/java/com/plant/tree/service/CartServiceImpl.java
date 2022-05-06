@@ -19,7 +19,7 @@ public class CartServiceImpl implements CartService{
 	private CartRepository repository;
 	
 	@Override
-	public ResponseDetails storeCartItems(Plant plant, String userEmail) {
+	public ResponseDetails storeCartItems(Plant plant, String userEmail, String quantity) {
 		ResponseDetails responseDetails = new ResponseDetails();
 		try {
 			Cart cart = new Cart();
@@ -28,7 +28,7 @@ public class CartServiceImpl implements CartService{
 			cart.setProductPrice(plant.getPrice());
 			cart.setProductName(plant.getPlantName());
 			cart.setProductImage(plant.getImageName());
-			cart.setQuantity(1);
+			cart.setQuantity(Integer.parseInt(quantity));
 			Cart savedCart = repository.save(cart);
 			if(savedCart != null) {
 				responseDetails.setResponseCode("000");
