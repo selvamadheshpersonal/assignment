@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false" import="java.util.*"%>
    <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+   <%@ include file="layout/header_main.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,22 @@
    
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript">
+  function plus(elem){
+    let targetElem = document.getElementById('count2');
+    let targetCount = parseInt(targetElem.value);
+    targetCount++;
+      document.getElementById('count2').value=targetCount ; 
+}
+function minus(elem){
+    let targetElem = document.getElementById('count2');
+    let targetCount = parseInt(targetElem.value);
+    if (targetCount > 1) {
+        targetCount--;
+        document.getElementById('count2').value=targetCount ; 
+    }
+}
+  </script>
 </head>
 <body>
 <div class="row" style="margin-top: 100px;">
@@ -21,9 +38,14 @@
 <div class="col">
 <h2><c:out value="${selectedPlant.plantName}"/></h2>
 <h5><c:out value="£ ${selectedPlant.price}"/></h5>
+<div class="row" style="    margin-top: 10px;">
+<div class="col-1"><button class="login101-form-btn" type="button" name="button" onclick="minus(this)">-</button></div>
+                <div class="col-2 text-end"><input type="text" class="inputClass" name="count" value="1" size="10" id="count2"></div>
+                <div class="col-1"><button class="login101-form-btn" type="button" name="button" onclick="plus(this)">+</button></div>
+                </div>
 <div class="container-login100-form-btn">
-					<button class="login100-form-btn" id="register">
-					<a href="addToCart?selectedPlantId=${selectedPlant.id}" >
+					<button class="login102-form-btn" id="register">
+					<a href="addToCart?selectedPlantId=${selectedPlant.id}&userEmail=${userEmail}&quantity=${count}" >
 						Add to Cart
 					</a>
 						
@@ -31,8 +53,9 @@
 				</div>
 </div>
 <div>
-<div class="row">
-<h5><c:out value="${selectedPlant.description}"/></h5>
+<div class="row" style="margin-top:10px;">
+<h2><l>Description :</l></h2>
+<h3><c:out value="${selectedPlant.description}"/></h3>
 </div>
 </body>
 </html>

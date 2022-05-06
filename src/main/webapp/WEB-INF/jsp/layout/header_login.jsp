@@ -16,8 +16,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-		<img src="assets/img/gallery/plants/logo.png" height="50" width="50">
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top header-bg">
+		<h4 style="color:white;">Plant-a-Tree</h4>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarsExampleDefault"
 			aria-controls="navbarsExampleDefault" aria-expanded="false"
@@ -26,27 +26,11 @@
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link"
-					href="<%=request.getContextPath()%>/">Indoor Plants</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="<%=request.getContextPath()%>/student-details">Outdoor
-						Plants</a></li>
-
+			<ul class="navbar-nav ms-auto">
+			<li class="nav-item active"><a class="nav-link"
+					href="/">Home</a></li>
 			</ul>
-			<div class="text-success">${userName }</div>
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link"
-					href="<%=request.getContextPath()%>/loadLogin">Login</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="<%=request.getContextPath()%>/student-details">Cart</a></li>
-
-			</ul>
-			<form class="form-inline my-2 my-lg-0" action="/search" method="POST">
-				<input class="form-control mr-sm-2" type="text" name="sName"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
+			
 		</div>
 
 	</nav>

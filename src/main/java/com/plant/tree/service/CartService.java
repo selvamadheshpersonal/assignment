@@ -1,9 +1,13 @@
 package com.plant.tree.service;
 
-import com.plant.tree.bean.AddToCartRequest;
+
+
 import com.plant.tree.bean.ResponseDetails;
+import com.plant.tree.domain.Cart;
+import com.plant.tree.domain.Plant;
 
 public interface CartService {
 
-	ResponseDetails storeCartItems(AddToCartRequest plant);
+	ResponseDetails storeCartItems(Plant plant,String useEmail);
+	Iterable<Cart> getCartItem();
 }

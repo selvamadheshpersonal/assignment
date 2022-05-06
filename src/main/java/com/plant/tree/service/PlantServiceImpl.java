@@ -22,4 +22,5 @@ public class PlantServiceImpl implements PlantService{
 	public Plant getSelectedPlant(int plantId) {
 		return repository.findById(plantId).get();
 	}
+	
 }

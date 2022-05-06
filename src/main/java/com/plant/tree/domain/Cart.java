@@ -1,5 +1,7 @@
 package com.plant.tree.domain;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,13 +17,13 @@ public class Cart {
 	private int cartId;
 	
 	@Column(name = "productId")
-	private String productId;
+	private int productId;
 	
 	@Column(name = "userEmail")
 	private String userEmail;
 	
 	@Column(name = "quantity")
-	private String quantity;
+	private int quantity;
 	
 	@Column(name = "productName")
 	private String productName;
@@ -30,13 +32,13 @@ public class Cart {
 	private String productImage;
 	
 	@Column(name = "productPrice")
-	private String productPrice;
+	private BigDecimal productPrice;
 
-	public String getProductPrice() {
+	public BigDecimal getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(String productPrice) {
+	public void setProductPrice(BigDecimal productPrice) {
 		this.productPrice = productPrice;
 	}
 
@@ -48,11 +50,11 @@ public class Cart {
 		this.cartId = cartId;
 	}
 
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
 
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 
@@ -64,11 +66,11 @@ public class Cart {
 		this.userEmail = userEmail;
 	}
 
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 

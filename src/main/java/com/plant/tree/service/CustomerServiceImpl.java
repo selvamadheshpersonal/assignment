@@ -50,7 +50,7 @@ public class CustomerServiceImpl implements CustomerService {
 				responseDetails.setResponseMessage("Successfully Authenticated");
 			} else {
 				responseDetails.setResponseCode("001");
-				responseDetails.setResponseMessage("User Name or Password is incorrec");
+				responseDetails.setResponseMessage("User Name or Password is incorrect");
 			}
 		} catch(Exception e) {
 			responseDetails.setResponseCode("500");
